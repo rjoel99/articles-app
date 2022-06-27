@@ -7,6 +7,7 @@ from mysql.connector import connect, Error
 from datetime import datetime
 from logs import Log
 from utils import from_config
+from os import environ
 
 
 '''
@@ -95,11 +96,11 @@ class ArticleRepository:
     def __init__(self):
         self.__article_log = ArticleLog()
 
-    __config   = from_config('config.ini')
-    __host     = __config.get('DatabaseSection', 'database.host')
-    __username = __config.get('DatabaseSection', 'database.username')
-    __password = __config.get('DatabaseSection', 'database.password')
-    __database = __config.get('DatabaseSection', 'database.db')
+    #__config   = from_config('config.ini')
+    __host     = environ.get('MYSQL_HOST', 'localhost')
+    __username = environ.get('MYSQL_USERNAME')
+    __password = environ.get('MYSQL_PASSWORD')
+    __database = environ.get('MYSQL_DATABASE')
     
     __table_article                 = "articulos"
     __table_article_clothes_det     = "articulos_ropa_detalles"
