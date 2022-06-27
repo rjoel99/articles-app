@@ -131,6 +131,30 @@ class ArticleRepository:
             ON {__table_article}.id = {__table_article_shoes_det}.idArticulo
     '''
 
+    __CREATE_TABLE = f''' create table clientes(
+            id int auto_increment primary key,
+            nombre varchar(20) not null,
+            apellido varchar(20) not null,
+            edad int,
+            direccion varchar(50),
+            email varchar(40),
+            telefono varchar(25),
+            tipoDocumento enum('DNI','LIBRETA_CIVICA','LIBRETA_ENROLAMIENTO','PASAPORTE'),
+            numeroDocumento varchar(10)
+        );
+    '''
+
+    def __create_table():
+        try:
+            with connect(host=ArticleRepository.__host, database=ArticleRepository.__database, \
+                         username=ArticleRepository.__username, password=ArticleRepository.__password) as connection:
+                with connection.cursor() as cursor:
+
+                    cursor.execute(ArticleRepository.__CREATE_TABLE)
+        except Error as error:
+            Log.print(error)
+            
+
 
     def find_articles_by_clothes_category(self):
         '''
