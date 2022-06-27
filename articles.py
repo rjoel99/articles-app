@@ -98,7 +98,7 @@ class ArticleRepository:
         self.__article_log = ArticleLog()
 
     #__config   = from_config('config.ini')
-    __host     = environ.get('MYSQL_HOST', 'localhost')
+    __host     = environ.get('MYSQL_HOST', '0.0.0.0')
     __username = environ.get('MYSQL_USERNAME')
     __password = environ.get('MYSQL_PASSWORD')
     __database = environ.get('MYSQL_DATABASE')
@@ -153,7 +153,7 @@ class ArticleRepository:
 
                     cursor.execute(ArticleRepository.__CREATE_TABLE)
         except Error as error:
-            Log.print(error)
+            print(error)
             
 
 
