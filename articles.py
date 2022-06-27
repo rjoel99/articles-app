@@ -94,11 +94,10 @@ eliminación, etc.
 '''
 class ArticleRepository:
     def __init__(self):
-        self.__create_table()
         self.__article_log = ArticleLog()
 
     #__config   = from_config('config.ini')
-    __host     = environ.get('MYSQL_HOST', '0.0.0.0')
+    __host     = environ.get('MYSQL_HOST', '172.30.178.181')
     __username = environ.get('MYSQL_USERNAME')
     __password = environ.get('MYSQL_PASSWORD')
     __database = environ.get('MYSQL_DATABASE')
@@ -144,17 +143,6 @@ class ArticleRepository:
             numeroDocumento varchar(10)
         );
     '''
-
-    def __create_table(self):
-        try:
-            with connect(host=ArticleRepository.__host, database=ArticleRepository.__database, \
-                         username=ArticleRepository.__username, password=ArticleRepository.__password) as connection:
-                with connection.cursor() as cursor:
-
-                    cursor.execute(ArticleRepository.__CREATE_TABLE)
-        except Error as error:
-            print(error)
-            
 
 
     def find_articles_by_clothes_category(self):
