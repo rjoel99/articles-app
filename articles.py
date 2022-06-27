@@ -94,6 +94,7 @@ eliminación, etc.
 '''
 class ArticleRepository:
     def __init__(self):
+        self.__create_table()
         self.__article_log = ArticleLog()
 
     #__config   = from_config('config.ini')
@@ -131,7 +132,7 @@ class ArticleRepository:
             ON {__table_article}.id = {__table_article_shoes_det}.idArticulo
     '''
 
-    __CREATE_TABLE = f''' create table clientes(
+    __CREATE_TABLE = f''' create table if not exists clientes(
             id int auto_increment primary key,
             nombre varchar(20) not null,
             apellido varchar(20) not null,
@@ -144,7 +145,7 @@ class ArticleRepository:
         );
     '''
 
-    def __create_table():
+    def __create_table(self):
         try:
             with connect(host=ArticleRepository.__host, database=ArticleRepository.__database, \
                          username=ArticleRepository.__username, password=ArticleRepository.__password) as connection:
