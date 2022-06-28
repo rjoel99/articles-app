@@ -4,6 +4,9 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 RUN pip3 install mysql-connector-python
 COPY . .
-RUN chmod 755 /app
+RUN adduser python root
+RUN chmod -R 755 /app
+RUN chown -R python:root /app
 EXPOSE 8001
+USER 1000
 CMD ["python3", "app.py"]
