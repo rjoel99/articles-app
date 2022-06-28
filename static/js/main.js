@@ -10,7 +10,7 @@ $(document).ready(function() {
         $('#title-table').html("Detalles de calzados");
 
         table = $('#articles-table');
-        httpRequest('http://localhost:8000/articles/shoes/details', 'GET', table);
+        httpRequest('https://articles-app-git-rjoel99-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/articles/shoes/details', 'GET', table);
     });
 
     $('#accessories-details').on('click', function() {
@@ -18,7 +18,7 @@ $(document).ready(function() {
         $('#title-table').html("Detalles de accesorios")
 
         table = $('#articles-table');
-        httpRequest('http://localhost:8000/articles/accessories/details', 'GET', table);
+        httpRequest('https://articles-app-git-rjoel99-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/articles/accessories/details', 'GET', table);
     });
 
     $('#clothes-details').on('click', function() {
@@ -26,7 +26,7 @@ $(document).ready(function() {
         $('#title-table').html("Detalles de ropa")
 
         table = $('#articles-table');
-        httpRequest('http://localhost:8000/articles/clothes/details', 'GET', table);
+        httpRequest('https://articles-app-git-rjoel99-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/articles/clothes/details', 'GET', table);
     });
 });
 
