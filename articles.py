@@ -131,19 +131,6 @@ class ArticleRepository:
             ON {__table_article}.id = {__table_article_shoes_det}.idArticulo
     '''
 
-    __CREATE_TABLE = f''' create table if not exists clientes(
-            id int auto_increment primary key,
-            nombre varchar(20) not null,
-            apellido varchar(20) not null,
-            edad int,
-            direccion varchar(50),
-            email varchar(40),
-            telefono varchar(25),
-            tipoDocumento enum('DNI','LIBRETA_CIVICA','LIBRETA_ENROLAMIENTO','PASAPORTE'),
-            numeroDocumento varchar(10)
-        );
-    '''
-
 
     def find_articles_by_clothes_category(self):
         '''
@@ -160,7 +147,7 @@ class ArticleRepository:
 
                     articles = cursor.fetchall()
 
-                    self.__article_log.print(ArticleLog.events['QUERY'], articles)
+                    #self.__article_log.print(ArticleLog.events['QUERY'], articles)
 
                     return [ArticleClothesDetail(*article) for article in articles]
         except Error as error:
@@ -184,7 +171,7 @@ class ArticleRepository:
 
                     articles = cursor.fetchall()
 
-                    self.__article_log.print(ArticleLog.events['QUERY'], articles)
+                    #self.__article_log.print(ArticleLog.events['QUERY'], articles)
 
                     return [ArticleAccessoryDetail(*article) for article in articles]
 
@@ -209,7 +196,7 @@ class ArticleRepository:
 
                     articles = cursor.fetchall()
 
-                    self.__article_log.print(ArticleLog.events['QUERY'], articles)
+                    #self.__article_log.print(ArticleLog.events['QUERY'], articles)
 
                     return [ArticleShoeDetail(*article) for article in articles]
 
