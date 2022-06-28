@@ -165,6 +165,7 @@ class ArticleRepository:
                     return [ArticleClothesDetail(*article) for article in articles]
         except Error as error:
             Log.print(error)
+            print(error)
             raise Exception("Ocurrió un error al realizar la consulta")
 
 
@@ -189,6 +190,7 @@ class ArticleRepository:
 
         except Error as error:
             Log.print(error)
+            print(error)
             raise Exception("Ocurrió un error al realizar la consulta")
 
 
@@ -213,6 +215,7 @@ class ArticleRepository:
 
         except Error as error:
             Log.print(error)
+            print(error)
             raise Exception("Ocurrió un error al realizar la consulta")
 
 
